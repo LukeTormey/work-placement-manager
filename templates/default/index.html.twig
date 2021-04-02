@@ -6,32 +6,32 @@
      {#{{ encore_entry_link_tags('app') }}#}
  {% endblock %}
 {% block body %}
-<div class="header">
-    <a href="{{ path('default') }}"><img src="/images/applogo.png" id="applogo" alt="homepage"></a>
-</div>
 <div class="content" style="border: 2px solid #070c0a;">
     <h2>Work Placement Job Application Manager</h2>
-    <p> • Prepare your CV, upload it and receive feedback from your lecturer!
-        • Employer will update jobs here where you may apply before the deadline ends!
+    <p> • Prepare your CV, upload it and receive feedback from your lecturer!<br></br>
+        • Employer will update jobs here where you may apply before the deadline ends!<br></br>
+        • Our application works to it's full potential when you create an account or sign in.
+        If you already have an existing account or if you would like to make a new one please follow the link.<br></br>
+        <a href="{{ url('app_login') }}">
+            Login or Create an Account
+        </a>
     </p>
 </div>
 <style>
-    #applogo{
-        width: 1260px;
-        height: 300px;
-        border: 2px solid #070c0a;
-    }
     body {
         background-color: lightblue;
     }
     .content{
         background-image: url(/images/backgroundcontent.png);
     }
+
     h2 {
         text-align:center;
+        font-family: Tahoma, sans-serif;
     }
     p {
-        text-align:center
+        text-align:center;
+        font-family: Tahoma, sans-serif;
     }
 </style>
 {% endblock %}

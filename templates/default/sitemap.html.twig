@@ -3,5 +3,48 @@
 {% block title %}Sitemap{% endblock %}
 
 {% block body %}
-Sitemap
+<div class="content" style="border: 2px solid #070c0a;">
+    <h2>Sitemap</h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url('default') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('about') }}">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('jobs') }}">
+                    Jobs
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('myaccount') }}">
+                    Personal information
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('sitemap') }}">
+                    Sitemap
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<style>
+    body {
+        background-color: #fff455;
+    }
+    h2 {
+        text-align:center;
+        font-family: Tahoma, sans-serif;
+    }
+    .content {
+        background-image: url(/images/sitemapcontent.png);
+    }
+    </style>
 {% endblock %}
