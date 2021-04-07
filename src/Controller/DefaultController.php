@@ -59,12 +59,12 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/myaccount", name="myaccount")
+     * @Route("/employers", name="employers")
      */
 
     public function myaccount(): Response
     {
-        $template = 'default/myaccount.html.twig';
+        $template = 'default/employers.html.twig';
         $args = [
         ];
 
