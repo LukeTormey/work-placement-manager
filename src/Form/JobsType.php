@@ -13,6 +13,8 @@ class JobsType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('company')
+            ->add('available')
         ;
     }
 

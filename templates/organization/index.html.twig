@@ -3,6 +3,31 @@
 {% block title %}Organization index{% endblock %}
 
 {% block body %}
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url('default') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('about') }}">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('organization_index') }}">
+                    Employers
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('sitemap') }}">
+                    Sitemap
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <h1>Organization index</h1>
 
     <table class="table">
@@ -13,6 +38,7 @@
                 <th>Hiringmanager</th>
                 <th>Location</th>
                 <th>Staffno</th>
+                <th>Jobs</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,6 +50,7 @@
                 <td>{{ organization.hiringmanager }}</td>
                 <td>{{ organization.location }}</td>
                 <td>{{ organization.staffno }}</td>
+                <td>{{ organization.job }}</td>
                 <td>
                     <a href="{{ path('organization_show', {'id': organization.id}) }}">show</a>
                     <a href="{{ path('organization_edit', {'id': organization.id}) }}">edit</a>

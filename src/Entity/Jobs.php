@@ -25,13 +25,23 @@ class Jobs
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $company;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $available;
+
+    /**
      * @ORM\OneToMany(targetEntity=Organization::class, mappedBy="job")
      */
-    private $deadline;
+    private $organizations;
 
     public function __construct()
     {
-        $this->deadline = new ArrayCollection();
+        $this->organizations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,36 +61,62 @@ class Jobs
         return $this;
     }
 
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function setCompany(string $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    public function getAvailable(): ?bool
+    {
+        return $this->available;
+    }
+
+    public function setAvailable(bool $available): self
+    {
+        $this->available = $available;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Organization[]
      */
-    public function getDeadline(): Collection
+    public function getOrganizations(): Collection
     {
-        return $this->deadline;
+        return $this->organizations;
     }
 
-    public function addDeadline(Organization $deadline): self
+    public function addOrganization(Organization $organization): self
     {
-        if (!$this->deadline->contains($deadline)) {
-            $this->deadline[] = $deadline;
-            $deadline->setJob($this);
+        if (!$this->organizations->contains($organization)) {
+            $this->organizations[] = $organization;
+            $organization->setJob($this);
         }
 
         return $this;
     }
 
-    public function removeDeadline(Organization $deadline): self
+    public function removeOrganization(Organization $organization): self
     {
-        if ($this->deadline->removeElement($deadline)) {
+        if ($this->organizations->removeElement($organization)) {
             // set the owning side to null (unless already changed)
-            if ($deadline->getJob() === $this) {
-                $deadline->setJob(null);
+            if ($organization->getJob() === $this) {
+                $organization->setJob(null);
             }
         }
+
         return $this;
     }
+
     public function __toString()
     {
-        return $this->name;
+       return $this->name;
     }
 }

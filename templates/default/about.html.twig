@@ -3,6 +3,30 @@
 {% block title %}About us{% endblock %}
 
 {% block body %}
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url('default') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('about') }}">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('organization_index') }}">
+                    Employers
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('sitemap') }}">
+                    Sitemap
+                </a>
+            </li>
+        </ul>
+    </nav>
 <div class="content" style="border: 2px solid #070c0a;">
     <h2>About us</h2>
     <h3>Our goal is to deliver you an easy to use application where you and your lecturer can upload and review
@@ -12,7 +36,7 @@
         for jobs but also keep an eye on deadlines that the employers set. Our clients work strictly around deadlines, once the
         deadline has occurred all CVs will be downloaded automatically to the client and submissions will close.<br></br>
         • We wish you all the best on your job hunt! To see our job page click on the link:
-        <a href="{{ url('jobs') }}">
+        <a href="{{ url('jobs_index') }}">
             Apply for jobs
         </a>
     </h3>

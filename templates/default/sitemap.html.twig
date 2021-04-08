@@ -3,8 +3,6 @@
 {% block title %}Sitemap{% endblock %}
 
 {% block body %}
-<div class="content" style="border: 2px solid #070c0a;">
-    <h2>Sitemap</h2>
     <nav>
         <ul>
             <li>
@@ -18,13 +16,13 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url('jobs') }}">
-                    Jobs
+                <a href="{{ url('organization_index') }}">
+                    Employers
                 </a>
             </li>
             <li>
-                <a href="{{ url('employers') }}">
-                    Employers
+                <a href="{{ url('jobs_index') }}">
+                    Jobs
                 </a>
             </li>
             <li>
@@ -33,6 +31,54 @@
                 </a>
             </li>
         </ul>
+    </nav>
+
+<div class="content" style="border: 2px solid #070c0a;">
+    <h2>Sitemap</h2>
+    <h3>User pages:</h3>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url('default') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('about') }}">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('organization_index') }}">
+                    Employers
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('jobs_index') }}">
+                    Jobs
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('sitemap') }}">
+                    Sitemap
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('app_login') }}">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <h3>Admin pages:</h3>
+    <nav>
+    <ul>
+    <li>
+        <a href="{{ url('user_index') }}">
+            Admin
+        </a>
+    </li>
+    </ul>
     </nav>
 </div>
 <style>
@@ -45,6 +91,11 @@
     }
     .content {
         background-image: url(/images/sitemapcontent.png);
+    }
+    h3 {
+        text-indent: 1em;
+        text-align:left;
+        font-family: Tahoma, sans-serif;
     }
     </style>
 {% endblock %}

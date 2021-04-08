@@ -34,10 +34,14 @@ class UserFixtures extends Fixture
         // create objects
         $userUser = $this->createUser('user@user.com', 'user');
         $userMatt = $this->createUser('matt.smith@smith.com', 'smith', 'ROLE_ADMIN');
+        $userLuke = $this->createUser('luketormey@staff.com', 'lecturer', 'ROLE_STAFF');
+        $userJosh = $this->createUser('josh.smith@smith.com', 'employer', 'ROLE_EMPLOYER');
 
         // add to DB queue
         $manager->persist($userUser);
         $manager->persist($userMatt);
+        $manager->persist($userLuke);
+        $manager->persist($userJosh);
 
         // send query to DB
         $manager->flush();

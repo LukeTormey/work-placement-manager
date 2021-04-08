@@ -3,6 +3,30 @@
 {% block title %}Jobs index{% endblock %}
 
 {% block body %}
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url('default') }}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('about') }}">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('employers') }}">
+                    Employers
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('sitemap') }}">
+                    Sitemap
+                </a>
+            </li>
+        </ul>
+    </nav>
     <h1>Jobs index</h1>
 
     <table class="table">
@@ -10,6 +34,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Company</th>
+                <th>Available</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +44,8 @@
             <tr>
                 <td>{{ job.id }}</td>
                 <td>{{ job.name }}</td>
+                <td>{{ job.company }}</td>
+                <td>{{ job.available ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('jobs_show', {'id': job.id}) }}">show</a>
                     <a href="{{ path('jobs_edit', {'id': job.id}) }}">edit</a>
@@ -25,7 +53,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

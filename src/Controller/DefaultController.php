@@ -33,19 +33,6 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/jobs", name="jobs")
-     */
-
-    public function jobs(): Response
-    {
-        $template = 'default/jobs.html.twig';
-        $args = [
-        ];
-
-        return $this->render($template, $args);
-    }
-
-    /**
      * @Route("/sitemap", name="sitemap")
      */
 

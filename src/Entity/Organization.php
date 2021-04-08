@@ -38,9 +38,10 @@ class Organization
     private $staffno;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Jobs::class, inversedBy="deadline")
+     * @ORM\ManyToOne(targetEntity=Jobs::class, inversedBy="organizations")
      */
     private $job;
+
 
     public function getId(): ?int
     {
@@ -95,6 +96,11 @@ class Organization
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function getJob(): ?Jobs
     {
         return $this->job;
@@ -105,10 +111,5 @@ class Organization
         $this->job = $job;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }

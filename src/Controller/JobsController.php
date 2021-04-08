@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/jobs")
@@ -17,6 +18,7 @@ class JobsController extends AbstractController
 {
     /**
      * @Route("/", name="jobs_index", methods={"GET"})
+     * @IsGranted("ROLE_USER", message="Access Denied: Create an account.")
      */
     public function index(JobsRepository $jobsRepository): Response
     {
