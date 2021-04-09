@@ -3,33 +3,9 @@
 {% block title %}About us{% endblock %}
 
 {% block body %}
-    <nav>
-        <ul>
-            <li>
-                <a href="{{ url('default') }}">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('about') }}">
-                    About
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('organization_index') }}">
-                    Employers
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('sitemap') }}">
-                    Sitemap
-                </a>
-            </li>
-        </ul>
-    </nav>
 <div class="content" style="border: 2px solid #070c0a;">
     <h2>About us</h2>
-    <h3>Our goal is to deliver you an easy to use application where you and your lecturer can upload and review
+    <p>Our goal is to deliver you an easy to use application where you and your lecturer can upload and review
         your CV and deliver feedback to you on how your CV could be improved. We work with a number of clients
         who are looking to take students on for work placement during summer. Our clients post jobs on our website for you
         to view and apply for if you are interested. Make sure you have worked with your lecturer in advancement of applying
@@ -39,7 +15,7 @@
         <a href="{{ url('jobs_index') }}">
             Apply for jobs
         </a>
-    </h3>
+    </p>
 </div>
 <style>
     body {
@@ -52,7 +28,7 @@
     .content{
         background-image: url(/images/backgroundcontentabout.png);
     }
-    h3 {
+    p {
         text-align:center;
         font-family: Tahoma, sans-serif;
         font-weight:normal;
