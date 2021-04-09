@@ -49,7 +49,7 @@ class DefaultController extends AbstractController
      * @Route("/employers", name="employers")
      */
 
-    public function myaccount(): Response
+    public function employers(): Response
     {
         $template = 'default/employers.html.twig';
         $args = [
@@ -57,4 +57,6 @@ class DefaultController extends AbstractController
 
         return $this->render($template, $args);
     }
+
+
 }

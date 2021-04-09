@@ -28,8 +28,13 @@
         </ul>
     </nav>
 
-    <h1>Organization index</h1>
-
+    <h1>Organizations</h1>
+    <p></p>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
     <table class="table">
         <thead>
             <tr>
@@ -50,7 +55,11 @@
                 <td>{{ organization.hiringmanager }}</td>
                 <td>{{ organization.location }}</td>
                 <td>{{ organization.staffno }}</td>
-                <td>{{ organization.job }}</td>
+                <td>
+                    <a href="{{ path('jobs_show', {'id': organization.job.id}) }}">
+                        {{ organization.job }}
+                    </a>
+                </td>
                 <td>
                     <a href="{{ path('organization_show', {'id': organization.id}) }}">show</a>
                     <a href="{{ path('organization_edit', {'id': organization.id}) }}">edit</a>
