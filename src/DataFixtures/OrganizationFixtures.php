@@ -14,7 +14,7 @@ class OrganizationFixtures extends Fixture
     {
         $job1 = new Jobs();
         $job1->setName('Software Developer');
-        $job1->setCompany('Google');
+        $job1->setCompany('MongoDB');
         $job1->setAvailable(true);
         $job2 = new Jobs();
         $job2->setName('Frontend Developer');
@@ -22,28 +22,27 @@ class OrganizationFixtures extends Fixture
         $job2->setAvailable(true);
         $job3 = new Jobs();
         $job3->setName('VM Technician');
-        $job3->setCompany('Google');
+        $job3->setCompany('TU Dublin');
         $job3->setAvailable(true);
-        $job3 = new Jobs();
-        $job3->setName('VM Technician');
-        $job3->setCompany('Google');
-        $job3->setAvailable(true);
-        $job3 = new Jobs();
-        $job3->setName('VM Technician');
-        $job3->setCompany('Google');
-        $job3->setAvailable(true);
-        $job3 = new Jobs();
-        $job3->setName('VM Technician');
-        $job3->setCompany('Google');
-        $job3->setAvailable(true);
-        $job3 = new Jobs();
-        $job3->setName('VM Technician');
-        $job3->setCompany('Google');
-        $job3->setAvailable(true);
+        $job4 = new Jobs();
+        $job4->setName('Marketing expert');
+        $job4->setCompany('Facebook');
+        $job4->setAvailable(true);
+        $job5 = new Jobs();
+        $job5->setName('Project Manager');
+        $job5->setCompany('Amazon');
+        $job5->setAvailable(true);
+        $job6 = new Jobs();
+        $job6->setName('IT Support Technican');
+        $job6->setCompany('SAP');
+        $job6->setAvailable(true);
 
         $manager->persist($job1);
         $manager->persist($job2);
         $manager->persist($job3);
+        $manager->persist($job4);
+        $manager->persist($job5);
+        $manager->persist($job6);
 
         $organization1 = new Organization();
         $organization1->setName('TUDublin');
@@ -57,35 +56,35 @@ class OrganizationFixtures extends Fixture
         $organization2->setHiringmanager('markzuckerberg@facebook.com');
         $organization2->setLocation('Clare');
         $organization2->setStaffno(700);
-        $organization2->setJob($job1);
+        $organization2->setJob($job4);
 
         $organization3 = new Organization();
         $organization3->setName('Google');
         $organization3->setHiringmanager('sundarpichai@gmail.com');
         $organization3->setLocation('Clare');
         $organization3->setStaffno(900);
-        $organization3->setJob($job3);
+        $organization3->setJob($job2);
 
         $organization4 = new Organization();
         $organization4->setName('Amazon');
         $organization4->setHiringmanager('jeffbezos@amazon.com');
         $organization4->setLocation('Dublin');
         $organization4->setStaffno(350);
-        $organization4->setJob($job1);
+        $organization4->setJob($job5);
 
         $organization5 = new Organization();
         $organization5->setName('SAP');
         $organization5->setHiringmanager('billmcdermott@sap.com');
         $organization5->setLocation('Dublin');
         $organization5->setStaffno(20);
-        $organization5->setJob($job3);
+        $organization5->setJob($job6);
 
         $organization6 = new Organization();
         $organization6->setName('MongoDB');
         $organization6->setHiringmanager(' DevIttycheria@mongodb.com');
         $organization6->setLocation('Galway');
         $organization6->setStaffno(400);
-        $organization6->setJob($job2);
+        $organization6->setJob($job1);
 
         $manager->persist($organization1);
         $manager->persist($organization2);

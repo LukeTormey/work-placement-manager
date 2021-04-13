@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CV{% endblock %}
+
+ {% block stylesheets %}
+     {#{{ encore_entry_link_tags('app') }}#}
+ {% endblock %}
+{% block body %}
+<h1>upload cv
+    <hr>
+    {%  for message in messages %}
+    <div class="message">
+        author: {{ message.author }}
+        message content: "{{ message.content }}"
+    </div>
+    {% endfor %}
+
+    <form action="{{ url('message_create') }}" method="post">
+        <input name="content">
+        <input type="submit">
+    </form>
+    <style>
+        .message {
+            margin: 0.5rem;
+            padding: 0.5rem;
+        }
+    </style>
+{% endblock %}

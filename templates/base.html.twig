@@ -92,10 +92,35 @@
                     User
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('app_login') }}">
+                    Login
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('cv') }}">
+                    Upload your CV
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('mymessages') }}">
+                    My messages
+                </a>
+            </li>
         </ul>
         </div>
-    </nav>
     </div>
+    </nav>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        Hello!
+        <strong>{{ app.user.username }}</strong>
+        you are logged in to Resume.ie.
+        <br>
+        <a href="{{ url('app_logout') }}">logout</a>
+    {% else %}
+        <a href="{{ url('app_login') }}">login</a>
+    {% endif %}
+
         {% block body %}{% endblock %}
     </body>
     <div class="footer" style="border: 1px solid #070c0a;">

@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\MessageRepository;
 
 class DefaultController extends AbstractController
 {
@@ -58,5 +59,32 @@ class DefaultController extends AbstractController
         return $this->render($template, $args);
     }
 
+    /**
+     * @Route("/cv", name="cv")
+     */
+    public function CV(MessageRepository $messageRepository): Response
+    {
 
+        $template = 'default/cv.html.twig';
+        $args = [
+            'messages' => $messageRepository->findAll(),
+        ];
+
+        return $this->render($template, $args);
+    }
+
+    /**
+     * @Route("/mymessages", name="mymessages")
+     */
+    public function myMessages(MessageRepository $messageRepository): Response
+    {
+        $author = $this->getUser();
+        $messages = $messageRepository->findByAuthor($author);
+
+        $template = "default/mymessages.html.twig";
+        $args = [
+            'messages' => $messages
+        ];
+        return $this->render($template, $args);
+    }
 }

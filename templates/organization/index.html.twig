@@ -25,7 +25,6 @@
                 <th>Name</th>
                 <th>Hiringmanager</th>
                 <th>Location</th>
-                <th>Staffno</th>
                 <th>Jobs</th>
                 <th>actions</th>
             </tr>
@@ -37,7 +36,6 @@
                 <td>{{ organization.name }}</td>
                 <td>{{ organization.hiringmanager }}</td>
                 <td>{{ organization.location }}</td>
-                <td>{{ organization.staffno }}</td>
                 <td>
                     <a href="{{ path('jobs_show', {'id': organization.job.id}) }}">
                         {{ organization.job }}
