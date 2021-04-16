@@ -82,31 +82,47 @@
                     Sitemap
                 </a>
             </li>
+            {% if is_granted('ROLE_EMPLOYER') %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('jobs_index') }}">
-                    Jobs
+                <a class="nav-link" href="{{ url('jobs_new') }}">
+                    Create Job
                 </a>
             </li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('jobs_index') }}">
+                        View Job
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_LECTURER') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('user_index') }}">
                     User
                 </a>
             </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('app_login') }}">
                     Login
                 </a>
             </li>
+            {% if is_granted('ROLE_USER') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('cv') }}">
                     Upload your CV
                 </a>
             </li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('mymessages') }}">
                     My messages
                 </a>
             </li>
+            {% endif %}
         </ul>
         </div>
     </div>

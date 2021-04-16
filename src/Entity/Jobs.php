@@ -39,6 +39,11 @@ class Jobs
      */
     private $organizations;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $deadline;
+
     public function __construct()
     {
         $this->organizations = new ArrayCollection();
@@ -118,5 +123,17 @@ class Jobs
     public function __toString()
     {
        return $this->name;
+    }
+
+    public function getDeadline(): ?\DateTimeInterface
+    {
+        return $this->deadline;
+    }
+
+    public function setDeadline(\DateTimeInterface $deadline): self
+    {
+        $this->deadline = $deadline;
+
+        return $this;
     }
 }

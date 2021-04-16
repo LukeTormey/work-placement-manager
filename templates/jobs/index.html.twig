@@ -37,7 +37,9 @@
                 <td>{{ job.available ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('jobs_show', {'id': job.id}) }}">show</a>
+                    {% if is_granted('ROLE_EMPLOYER') %}
                     <a href="{{ path('jobs_edit', {'id': job.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

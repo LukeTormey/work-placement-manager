@@ -43,7 +43,9 @@
                 </td>
                 <td>
                     <a href="{{ path('organization_show', {'id': organization.id}) }}">show</a>
+                    {% if is_granted('ROLE_EMPLOYER') %}
                     <a href="{{ path('organization_edit', {'id': organization.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

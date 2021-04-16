@@ -16,7 +16,6 @@ https://www.w3schools.com/Css/css_table.asp
 -helped with table css
 
 Questions for Matt,
-In security.yaml should I create role hierarchy for Lecturer and Staff member with ROLE_STAFF etc?
-Any suggestions on how to create a deadline for submissions?
-Help to sort content of database by county?
-
+Any suggestions on how to create a deadline for submissions?(Can I add a property after entity is created)
+Show Matt the changed made and ask can you make multiple users granted access.
+Any suggestions on how to create download feature?
