@@ -47,9 +47,15 @@ class User implements UserInterface
      */
     private $student;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="email")
+     */
+    private $students;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
+        $this->students = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +183,36 @@ class User implements UserInterface
     public function setStudent(?Student $student): self
     {
         $this->student = $student;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Student[]
+     */
+    public function getStudents(): Collection
+    {
+        return $this->students;
+    }
+
+    public function addStudent(Student $student): self
+    {
+        if (!$this->students->contains($student)) {
+            $this->students[] = $student;
+            $student->setEmail($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudent(Student $student): self
+    {
+        if ($this->students->removeElement($student)) {
+            // set the owning side to null (unless already changed)
+            if ($student->getEmail() === $this) {
+                $student->setEmail(null);
+            }
+        }
 
         return $this;
     }
