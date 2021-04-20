@@ -84,14 +84,14 @@
             </li>
             {% if is_granted('ROLE_EMPLOYER') %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('jobs_new') }}">
+                <a class="nav-link" href="{{ url('job_new') }}">
                     Create Job
                 </a>
             </li>
             {% endif %}
             {% if is_granted('ROLE_USER') %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('jobs_index') }}">
+                    <a class="nav-link" href="{{ url('job_index') }}">
                         View Job
                     </a>
                 </li>

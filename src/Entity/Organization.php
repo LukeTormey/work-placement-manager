@@ -38,7 +38,7 @@ class Organization
     private $staffno;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Jobs::class, inversedBy="organizations")
+     * @ORM\ManyToOne(targetEntity=Job::class, inversedBy="organizations")
      */
     private $job;
 
@@ -101,12 +101,12 @@ class Organization
         return $this->name;
     }
 
-    public function getJob(): ?Jobs
+    public function getJob(): ?Job
     {
         return $this->job;
     }
 
-    public function setJob(?Jobs $job): self
+    public function setJob(?Job $job): self
     {
         $this->job = $job;
 

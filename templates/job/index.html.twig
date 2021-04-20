@@ -1,22 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Jobs index{% endblock %}
+{% block title %}Job index{% endblock %}
 
 {% block body %}
-<div class="content" style="border: 2px solid #070c0a;">
-    <h1>Jobs</h1>
-    <style>
-        h1 {
-            text-align: center;
-        }
-        body {
-            background-color: lightblue;
-        }
-        .content{
-            background-color: darkcyan;
-            width: 100%;
-        }
-    </style>
+    <h1>Job index</h1>
 
     <table class="table">
         <thead>
@@ -25,6 +12,7 @@
                 <th>Name</th>
                 <th>Company</th>
                 <th>Available</th>
+                <th>Deadline</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -35,20 +23,19 @@
                 <td>{{ job.name }}</td>
                 <td>{{ job.company }}</td>
                 <td>{{ job.available ? 'Yes' : 'No' }}</td>
+                <td>{{ job.deadline ? job.deadline|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('jobs_show', {'id': job.id}) }}">show</a>
-                    {% if is_granted('ROLE_EMPLOYER') %}
-                    <a href="{{ path('jobs_edit', {'id': job.id}) }}">edit</a>
-                    {% endif %}
+                    <a href="{{ path('job_show', {'id': job.id}) }}">show</a>
+                    <a href="{{ path('job_edit', {'id': job.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div>
-    <a href="{{ path('jobs_new') }}">Create new</a>
+
+    <a href="{{ path('job_new') }}">Create new</a>
 {% endblock %}

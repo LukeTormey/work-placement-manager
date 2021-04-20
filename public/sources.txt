@@ -11,11 +11,15 @@ https://www.istockphoto.com/search/2/image?mediatype=illustration&phrase=now+hir
 #sitemapcontent
 https://www.pinterest.ie/pin/497788565039401105/
 
+#student1
+https://d2studios.net/blog/2014/09/tips-to-prepare-for-your-professional-portrait/
+
+#student2, student3
+https://www.carvermostardi.com/portraits-headshots-tampa/
+
 Ref Other sources: 
 https://www.w3schools.com/Css/css_table.asp
 -helped with table css
 
 Questions for Matt,
-Any suggestions on how to create a deadline for submissions?(Can I add a property after entity is created)
-Show Matt the changed made and ask can you make multiple users granted access.
 Any suggestions on how to create download feature?

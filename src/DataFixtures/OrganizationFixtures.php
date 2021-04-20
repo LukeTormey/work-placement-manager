@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Organization;
-use App\Entity\Jobs;
+use App\Entity\Job;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use DateTime;
@@ -13,38 +13,37 @@ class OrganizationFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $date = new DateTime("2021-10-16 21:30:45");
 
-        $job1 = new Jobs();
+        $job1 = new Job();
         $job1->setName('Software Developer');
         $job1->setCompany('MongoDB');
         $job1->setAvailable(true);
-        $job1->setDeadline(2021-10-16);
-        $job2 = new Jobs();
+        $job1->setDeadline( new DateTime('2021-10-16'));
+        $job2 = new Job();
         $job2->setName('Frontend Developer');
         $job2->setCompany('Google');
         $job2->setAvailable(true);
-        $job2->setDeadline(2021-10-16);
-        $job3 = new Jobs();
+        $job2->setDeadline( new DateTime('2021-09-21'));
+        $job3 = new Job();
         $job3->setName('VM Technician');
         $job3->setCompany('TU Dublin');
         $job3->setAvailable(true);
-        $job3->setDeadline(2021-10-16);
-        $job4 = new Jobs();
+        $job3->setDeadline( new DateTime('2021-12-10'));
+        $job4 = new Job();
         $job4->setName('Marketing expert');
         $job4->setCompany('Facebook');
         $job4->setAvailable(true);
-        $job4->setDeadline(2021-10-16);
-        $job5 = new Jobs();
+        $job4->setDeadline( new DateTime('2021-07-11'));
+        $job5 = new Job();
         $job5->setName('Project Manager');
         $job5->setCompany('Amazon');
         $job5->setAvailable(true);
-        $job5->setDeadline(2021-10-16);
-        $job6 = new Jobs();
+        $job5->setDeadline( new DateTime('2021-11-03'));
+        $job6 = new Job();
         $job6->setName('IT Support Technican');
         $job6->setCompany('SAP');
         $job6->setAvailable(true);
-        $job6->setDeadline(2021-10-16);
+        $job6->setDeadline( new DateTime('2021-12-15'));
 
         $manager->persist($job1);
         $manager->persist($job2);

@@ -42,6 +42,11 @@ class User implements UserInterface
      */
     private $messages;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Student::class, cascade={"persist", "remove"})
+     */
+    private $student;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -162,5 +167,17 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->email;
+    }
+
+    public function getStudent(): ?Student
+    {
+        return $this->student;
+    }
+
+    public function setStudent(?Student $student): self
+    {
+        $this->student = $student;
+
+        return $this;
     }
 }

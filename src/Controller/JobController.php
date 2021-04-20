@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Jobs;
-use App\Form\JobsType;
+use App\Entity\Job;
+use App\Form\JobType;
 use App\Repository\JobsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,28 +12,28 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
- * @Route("/jobs")
+ * @Route("/job")
  */
-class JobsController extends AbstractController
+class JobController extends AbstractController
 {
     /**
-     * @Route("/", name="jobs_index", methods={"GET"})
-     * @IsGranted("ROLE_USER", message="Access Denied: Create an account.")
+     * @Route("/", name="job_index", methods={"GET"})
+     * @IsGranted("ROLE_USER", message="Access Denied: Make an account")
      */
     public function index(JobsRepository $jobsRepository): Response
     {
-        return $this->render('jobs/index.html.twig', [
+        return $this->render('job/index.html.twig', [
             'jobs' => $jobsRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="jobs_new", methods={"GET","POST"})
+     * @Route("/new", name="job_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
-        $job = new Jobs();
-        $form = $this->createForm(JobsType::class, $job);
+        $job = new Job();
+        $form = $this->createForm(JobType::class, $job);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -41,49 +41,49 @@ class JobsController extends AbstractController
             $entityManager->persist($job);
             $entityManager->flush();
 
-            return $this->redirectToRoute('jobs_index');
+            return $this->redirectToRoute('job_index');
         }
 
-        return $this->render('jobs/new.html.twig', [
+        return $this->render('job/new.html.twig', [
             'job' => $job,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="jobs_show", methods={"GET"})
+     * @Route("/{id}", name="job_show", methods={"GET"})
      */
-    public function show(Jobs $job): Response
+    public function show(Job $job): Response
     {
-        return $this->render('jobs/show.html.twig', [
+        return $this->render('job/show.html.twig', [
             'job' => $job,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="jobs_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="job_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Jobs $job): Response
+    public function edit(Request $request, Job $job): Response
     {
-        $form = $this->createForm(JobsType::class, $job);
+        $form = $this->createForm(JobType::class, $job);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('jobs_index');
+            return $this->redirectToRoute('job_index');
         }
 
-        return $this->render('jobs/edit.html.twig', [
+        return $this->render('job/edit.html.twig', [
             'job' => $job,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="jobs_delete", methods={"DELETE"})
+     * @Route("/{id}", name="job_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Jobs $job): Response
+    public function delete(Request $request, Job $job): Response
     {
         if ($this->isCsrfTokenValid('delete'.$job->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -91,6 +91,6 @@ class JobsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('jobs_index');
+        return $this->redirectToRoute('job_index');
     }
 }

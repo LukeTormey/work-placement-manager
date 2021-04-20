@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=JobsRepository::class)
  */
-class Jobs
+class Job
 {
     /**
      * @ORM\Id
@@ -40,7 +40,7 @@ class Jobs
     private $organizations;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $deadline;
 
@@ -130,7 +130,7 @@ class Jobs
         return $this->deadline;
     }
 
-    public function setDeadline(\DateTimeInterface $deadline): self
+    public function setDeadline(?\DateTimeInterface $deadline): self
     {
         $this->deadline = $deadline;
 

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Jobs;
+use App\Entity\Job;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Jobs|null find($id, $lockMode = null, $lockVersion = null)
- * @method Jobs|null findOneBy(array $criteria, array $orderBy = null)
- * @method Jobs[]    findAll()
- * @method Jobs[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Job|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Job|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Job[]    findAll()
+ * @method Job[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class JobsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Jobs::class);
+        parent::__construct($registry, Job::class);
     }
 
     // /**
-    //  * @return Jobs[] Returns an array of Jobs objects
+    //  * @return Job[] Returns an array of Job objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class JobsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Jobs
+    public function findOneBySomeField($value): ?Job
     {
         return $this->createQueryBuilder('j')
             ->andWhere('j.exampleField = :val')
