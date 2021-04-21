@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Content</th>
+                <th>Author</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
             <tr>
                 <td>{{ message.id }}</td>
                 <td>{{ message.content }}</td>
+                <td>{{ message.author }}</td>
                 <td>
                     <a href="{{ path('message_show', {'id': message.id}) }}">show</a>
                     <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>

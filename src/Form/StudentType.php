@@ -13,7 +13,7 @@ class StudentType extends AbstractType
     {
         $builder
             ->add('employed')
-            ->add('studentno')
+            ->add('studentNumber')
             ->add('email')
             ->add('cv')
         ;

@@ -18,29 +18,52 @@ class Student
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="students")
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $employed;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $studentno;
+    private $studentNumber;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Cv::class, inversedBy="students")
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     */
+    private $email;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Cv::class, cascade={"persist", "remove"})
      */
     private $cv;
-
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getEmployed(): ?bool
+    {
+        return $this->employed;
+    }
+
+    public function setEmployed(bool $employed): self
+    {
+        $this->employed = $employed;
+
+        return $this;
+    }
+
+    public function getStudentNumber(): ?string
+    {
+        return $this->studentNumber;
+    }
+
+    public function setStudentNumber(?string $studentNumber): self
+    {
+        $this->studentNumber = $studentNumber;
+
+        return $this;
     }
 
     public function getEmail(): ?User
@@ -55,38 +78,9 @@ class Student
         return $this;
     }
 
-    public function getEmployed(): ?bool
-    {
-        return $this->employed;
-    }
-
-    public function setEmployed(?bool $employed): self
-    {
-        $this->employed = $employed;
-
-        return $this;
-    }
-
-    public function getStudentno(): ?string
-    {
-        return $this->studentno;
-    }
-
-    public function setStudentno(?string $studentno): self
-    {
-        $this->studentno = $studentno;
-
-        return $this;
-    }
-
     public function getCv(): ?Cv
     {
         return $this->cv;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 
     public function setCv(?Cv $cv): self
@@ -94,5 +88,10 @@ class Student
         $this->cv = $cv;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->email;
     }
 }

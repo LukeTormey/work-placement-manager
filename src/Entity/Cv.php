@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CvRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,15 +20,15 @@ class Cv
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Name;
+    private $name;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $DOB;
+    private $Dateofbirth;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $address;
 
@@ -47,7 +45,7 @@ class Cv
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $workexperience;
+    private $workExperience;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -59,16 +57,6 @@ class Cv
      */
     private $image;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="cv")
-     */
-    private $students;
-
-    public function __construct()
-    {
-        $this->students = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -76,24 +64,24 @@ class Cv
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(?string $Name): self
+    public function setName(?string $name): self
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getDOB(): ?\DateTimeInterface
+    public function getDateofbirth(): ?\DateTimeInterface
     {
-        return $this->DOB;
+        return $this->Dateofbirth;
     }
 
-    public function setDOB(?\DateTimeInterface $DOB): self
+    public function setDateofbirth(?\DateTimeInterface $Dateofbirth): self
     {
-        $this->DOB = $DOB;
+        $this->Dateofbirth = $Dateofbirth;
 
         return $this;
     }
@@ -103,7 +91,7 @@ class Cv
         return $this->address;
     }
 
-    public function setAddress(?string $address): self
+    public function setAddress(string $address): self
     {
         $this->address = $address;
 
@@ -134,22 +122,18 @@ class Cv
         return $this;
     }
 
-    public function getWorkexperience(): ?string
+    public function getWorkExperience(): ?string
     {
-        return $this->workexperience;
+        return $this->workExperience;
     }
 
-    public function setWorkexperience(?string $workexperience): self
+    public function setWorkExperience(?string $workExperience): self
     {
-        $this->workexperience = $workexperience;
+        $this->workExperience = $workExperience;
 
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->Name;
-    }
     public function getReferees(): ?string
     {
         return $this->referees;
@@ -173,34 +157,8 @@ class Cv
 
         return $this;
     }
-
-    /**
-     * @return Collection|Student[]
-     */
-    public function getStudents(): Collection
+    public function __toString()
     {
-        return $this->students;
-    }
-
-    public function addStudent(Student $student): self
-    {
-        if (!$this->students->contains($student)) {
-            $this->students[] = $student;
-            $student->setCv($this);
-        }
-
-        return $this;
-    }
-
-    public function removeStudent(Student $student): self
-    {
-        if ($this->students->removeElement($student)) {
-            // set the owning side to null (unless already changed)
-            if ($student->getCv() === $this) {
-                $student->setCv(null);
-            }
-        }
-
-        return $this;
+        return $this->name;
     }
 }
