@@ -20,9 +20,26 @@ class OrganizationController extends AbstractController
      */
     public function index(OrganizationRepository $organizationRepository): Response
     {
-        return $this->render('organization/index.html.twig', [
+        $template = 'organization/index.html.twig';
+        $args = [
             'organizations' => $organizationRepository->findAll(),
-        ]);
+        ];
+        return $this->render($template, $args);
+    }
+
+    /**
+     * @Route("/name/{id}", name="organization_filter_name", methods={"GET"})
+     */
+    public function filterName($id, OrganizationRepository $organizationRepository): Response
+
+    {
+        $filter = $organizationRepository->find($id);
+
+        $template = 'organization/index.html.twig';
+        $args = [
+            'organizations' => $organizationRepository->findByName($filter),
+        ];
+        return $this->render($template, $args);
     }
 
     /**

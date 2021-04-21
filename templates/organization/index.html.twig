@@ -22,7 +22,15 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Name
+                    <br>
+                    Filter by Name:
+                    {% for organization in organizations %}
+                        <a href="{{ url('organization_filter_name', {'id': organization.id}) }}">
+                            {{ organization }}
+                        </a>
+                        /
+                    {% endfor %}</th>
                 <th>Hiringmanager</th>
                 <th>Location</th>
                 <th>Jobs</th>
